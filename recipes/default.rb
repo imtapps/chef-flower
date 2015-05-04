@@ -24,6 +24,13 @@ user node['flower']['user'] do
   system true
 end
 
+directory node['flower']['virtualenv'] do
+  owner node['flower']['user']
+  group node['flower']['group']
+  mode '0755'
+  action :create
+end
+
 include_recipe 'python::default'
 
 python_virtualenv node['flower']['virtualenv'] do

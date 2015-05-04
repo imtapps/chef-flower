@@ -36,7 +36,7 @@ include_recipe 'python::default'
 python_virtualenv node['flower']['virtualenv'] do
   owner node['flower']['user']
   group node['flower']['group']
-
+  action :create
   not_if { node['flower']['virtualenv'].nil? }
 end
 

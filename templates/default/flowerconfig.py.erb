@@ -2,6 +2,10 @@
   <% if value.is_a?(Integer) %>
 <%= name %> = <%= value %>
   <% else %>
+    <% if value.is_a?(TrueClass) %>
+<%= name %> = True
+    <% else %>
 <%= name %> = '<%= value %>'
+    <% end %>
   <% end %>
 <% end%>
